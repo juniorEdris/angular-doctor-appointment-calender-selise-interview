@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Appointment Summery</h2>
+<mat-dialog-content class="mat-typography">
+  Hello {{ "Mr." }} {{ "Raghib" }} you have an appointment at
+  {{ "08:22 PM" }} on {{ "22-08-20" }}
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button
+    mat-raised-button
+    [mat-dialog-close]="true"
+    cdkFocusInitial
+    color="primary"
+  >
+    Close
+  </button>
+</mat-dialog-actions>
