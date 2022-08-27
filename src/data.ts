@@ -369,6 +369,21 @@ export const monthsSerial: any = {
   December: '12',
 };
 
+export const allMonths = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
+
 export const getCurrentMonth = () => {
   const serial2 = [
     'January',

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-create-appointment-modal',
@@ -7,7 +8,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./create-appointment-modal.component.css'],
 })
 export class CreateAppointmentModalComponent implements OnInit {
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private dialogRef: MatDialogRef<CreateAppointmentModalComponent>
+  ) {}
   appointmentForm!: FormGroup;
   ngOnInit(): void {
     this.appointmentForm = this.formBuilder.group({
@@ -20,9 +24,9 @@ export class CreateAppointmentModalComponent implements OnInit {
   }
 
   createAppointment(): void {
-    console.log(this.appointmentForm);
-    console.log('wrking');
     if (this.isFormIsReady()) {
+      console.log(this.appointmentForm.value);
+      this.dialogRef.close();
     }
   }
 

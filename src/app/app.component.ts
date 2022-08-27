@@ -9,18 +9,4 @@ import { CalenderData } from 'src/data';
 })
 export class AppComponent {
   title = 'doctor-appointment-calender';
-
-  constructor(private dialog: MatDialog) {}
-  showAppointMentDetails(event: any) {
-    console.log(`event: ${event}`);
-    console.log(CalenderData);
-    const dialogRef = this.dialog.open(AppointmentDetailsComponent);
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
-  getAllData() {
-    return CalenderData;
-  }
 }

@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialComponentsModule } from 'src/material.module';
 import { AppTopbarComponent } from './app-topbar/app-topbar.component';
 import { AppointmentDetailsComponent } from './appointment-details/appointment-details.component';
+import { CalenderBodyComponent } from './calender-body/calender-body.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { AppointmentDetailsComponent } from './appointment-details/appointment-d
     CreateAppointmentModalComponent,
     AppTopbarComponent,
     AppointmentDetailsComponent,
+    CalenderBodyComponent,
   ],
   imports: [
     BrowserModule,
