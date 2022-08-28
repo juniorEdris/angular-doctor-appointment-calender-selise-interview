@@ -1,14 +1,6 @@
 <div class="wrapper">
   <div class="calender_filters">
     <mat-form-field appearance="outline">
-      <mat-label>Year</mat-label>
-      <mat-select [(ngModel)]="selectYear" (ngModelChange)="getYear($event)">
-        <mat-option value="2021">2021</mat-option>
-        <mat-option value="2022">2022</mat-option>
-        <mat-option value="2023">2023</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field appearance="outline">
       <mat-label>Month</mat-label>
       <mat-select [(ngModel)]="selectMonth" (ngModelChange)="getMonth($event)">
         <mat-option *ngFor="let month of allmonths" [value]="month">{{
@@ -17,6 +9,9 @@
       </mat-select>
     </mat-form-field>
   </div>
+
+  <!-- Calender contents starts here -->
+  
   <div class="">
     <div class="calender_contents">
       <div class="calender_day" *ngFor="let day of calenderData.month.days">
@@ -25,15 +20,17 @@
         </div>
         <div class="appointment_area">
           <!-- appointment rows start -->
-          <div
-            class="appointment_rows"
-            (click)="showAppointMentDetails('Demo', '09:00 PM')"
-          >
-            Appointment 1 at 08:00 PM
-          </div>
+           <ng-template ngFor let-item [ngForOf]="activeAppointments">
+               <div
+               class="appointment_rows"
+               (click)="showAppointMentDetails(item)"
+               >
+               <div>Appointment 1 at {{ item.time }}</div>
+             </div>
+
+           </ng-template>
         </div>
       </div>
     </div>
-    <!-- <span (click)="showAppointMentDetails($event)">Open</span> -->
   </div>
 </div>

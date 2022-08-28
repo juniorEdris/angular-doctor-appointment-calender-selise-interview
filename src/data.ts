@@ -1,3 +1,5 @@
+import { Appointments } from './app/interfaces';
+
 export const CalenderData: any = [
   {
     year: 2019,
@@ -385,7 +387,7 @@ export const allMonths = [
 ];
 
 export const getCurrentMonth = () => {
-  const serial2 = [
+  const serial = [
     'January',
     'February',
     'March',
@@ -399,21 +401,56 @@ export const getCurrentMonth = () => {
     'November',
     'December',
   ];
-  const serial = {
-    '01': 'January',
-    '02': 'February',
-    '03': 'March',
-    '04': 'April',
-    '05': 'May',
-    '06': 'June',
-    '07': 'July',
-    '08': 'August',
-    '09': 'September',
-    '10': 'October',
-    '11': 'November',
-    '12': 'December',
-  };
   const currentMonthNo: number = new Date().getMonth();
 
-  return serial2[currentMonthNo];
+  return serial[currentMonthNo];
+};
+
+const allData = [
+  {
+    age: '20',
+    date: '2022-08-01',
+    gender: 'male',
+    name: 'demo',
+    time: '18:40',
+  },
+  {
+    age: '20',
+    date: '2022-09-01',
+    gender: 'male',
+    name: 'demo2',
+    time: '16:40',
+  },
+  {
+    age: '20',
+    date: '2022-10-01',
+    gender: 'male',
+    name: 'demo2',
+    time: '16:40',
+  },
+];
+export const getData = () => {
+  return allData;
+};
+
+const formatDate = (date: any) => {
+  var d = new Date(date),
+    month = '' + (d.getMonth() + 1),
+    day = '' + d.getDate(),
+    year = d.getFullYear();
+
+  if (month.length < 2) month = '0' + month;
+  if (day.length < 2) day = '0' + day;
+
+  return [year, month, day].join('-');
+};
+
+export const setData = async (data: Appointments) => {
+  const preparedData = {
+    ...data,
+    date: formatDate(data.date),
+  };
+
+  allData.push(preparedData);
+  return allData;
 };

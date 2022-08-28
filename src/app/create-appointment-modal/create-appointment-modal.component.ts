@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { setData } from 'src/data';
 
 @Component({
   selector: 'app-create-appointment-modal',
@@ -25,7 +26,8 @@ export class CreateAppointmentModalComponent implements OnInit {
 
   createAppointment(): void {
     if (this.isFormIsReady()) {
-      console.log(this.appointmentForm.value);
+      const result = setData(this.appointmentForm.value);
+      // console.log(this.appointmentForm.value, result);
       this.dialogRef.close();
     }
   }
